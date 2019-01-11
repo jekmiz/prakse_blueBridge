@@ -94,11 +94,12 @@ button {
         connect();
 
         $checks = checkAdminPsw($_GET["uname"], $_GET["psw"]);
-        $location = "Location:http://127.0.0.1/prakse_med/elements.html";
+        
 
-        if($checks == "true"){
+        if($checks == "true") {
+            $location = "Location:http://127.0.0.1/prakse_med/elements.html" . "?para1=" . $_GET["uname"];
             header($location);
-        }else{
+        } else {
             echo("Nepareizi dati!");
         }
 
